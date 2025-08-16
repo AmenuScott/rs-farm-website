@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R S Farm Ltd. - Discover Fresh Crops Worldwide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-seedling"></i>
+                <span>R S Farm Ltd.</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#crops">Crops</a></li>
+                <li><a href="#search">Find Farms</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Discover Fresh Crops from Around the World</h1>
+            <p>Connect with local farms in Canada, Australia, Switzerland, West Africa, and beyond. Find the freshest fruits and vegetables directly from source.</p>
+            <a href="#search" class="cta-button">Find Farms Near You</a>
+        </div>
+        <div class="hero-image">
+            <div class="floating-crops">
+                <div class="crop-item apple">🍎</div>
+                <div class="crop-item carrot">🥕</div>
+                <div class="crop-item tomato">🍅</div>
+                <div class="crop-item corn">🌽</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crops Showcase -->
+    <section id="crops" class="crops-section">
+        <div class="container">
+            <h2>Fresh Crops Available</h2>
+            <div class="crops-filter">
+                <button class="filter-btn active" data-filter="all">All Crops</button>
+                <button class="filter-btn" data-filter="fruits">Fruits</button>
+                <button class="filter-btn" data-filter="vegetables">Vegetables</button>
+            </div>
+            <div class="crops-grid">
+                <!-- Fruits -->
+                <div class="crop-card" data-category="fruits">
+                    <div class="crop-image">🍎</div>
+                    <h3>Apples</h3>
+                    <p>Fresh, crisp apples available year-round</p>
+                    <div class="crop-details">
+                        <span class="season">Fall</span>
+                        <span class="origin">Canada, Switzerland</span>
+                    </div>
+                </div>
+                <div class="crop-card" data-category="fruits">
+                    <div class="crop-image">🍊</div>
+                    <h3>Oranges</h3>
+                    <p>Sweet and juicy citrus fruits</p>
+                    <div class="crop-details">
+                        <span class="season">Winter</span>
+                        <span class="origin">Australia, West Africa</span>
+                    </div>
+                </div>
+                <div class="crop-card" data-category="fruits">
+                    <div class="crop-image">🍇</div>
+                    <h3>Grapes</h3>
+                    <p>Perfect for wine and fresh eating</p>
+                    <div class="crop-details">
+                        <span class="season">Summer</span>
+                        <span class="origin">Switzerland, Australia</span>
+                    </div>
+                </div>
+                <div class="crop-card" data-category="fruits">
+                    <div class="crop-image">🥭</div>
+                    <h3>Mangoes</h3>
+                    <p>Tropical sweetness from West Africa</p>
+                    <div class="crop-details">
+                        <span class="season">Summer</span>
+                        <span class="origin">West Africa, Australia</span>
+                    </div>
+                </div>
+                <div class="crop-card" data-category="fruits">
+                    <div class="crop-image">🍓</div>
+                    <h3>Strawberries</h3>
+                    <p>Sweet berries perfect for desserts</p>
+                    <div class="crop-details">
+                        <span class="season">Spring</span>
+                        <span class="origin">Canada, Australia</span>
+                    </div>
+                </div>
+                <div class="crop-card" data-category="fruits">
+                    <div class="crop-image">🍑</div>
+                    <h3>Peaches</h3>
+                    <p>Soft, fuzzy stone fruits</p>
+                    <div class="crop-details">
+                        <span class="season">Summer</span>
+                        <span class="origin">Canada, Switzerland</span>
+                    </div>
+                </div>
+
+                <!-- Vegetables -->
+                <div class="crop-card" data-category="vegetables">
+                    <div class="crop-image">🥕</div>
+                    <h3>Carrots</h3>
+                    <p>Nutritious root vegetables</p>
+                    <div class="crop-details">
+                        <span class="season">Year-round</span>
+                        <span class="origin">Canada, Australia</span>
+                    </div>
+                </div>
+                <div class="crop-card" data-category="vegetables">
+                    <div class="crop-image">🍅</div>
+                    <h3>Tomatoes</h3>
+                    <p>Versatile and flavorful</p>
+                    <div class="crop-details">
+                        <span class="season">Summer</span>
+                        <span class="origin">All Regions</span>
+                    </div>
+                </div>
+                <div class="crop-card" data-category="vegetables">
+                    <div class="crop-image">🥬</div>
+                    <h3>Lettuce</h3>
+                    <p>Fresh leafy greens</p>
+                    <div class="crop-details">
+                        <span class="season">Spring/Fall</span>
+                        <span class="origin">Switzerland, Canada</span>
+                    </div>
+                </div>
+                <div class="crop-card" data-category="vegetables">
+                    <div class="crop-image">🥦</div>
+                    <h3>Broccoli</h3>
+                    <p>Nutritious green vegetable</p>
+                    <div class="crop-details">
+                        <span class="season">Fall/Spring</span>
+                        <span class="origin">Canada, Australia</span>
+                    </div>
+                </div>
+                <div class="crop-card" data-category="vegetables">
+                    <div class="crop-image">🌽</div>
+                    <h3>Corn</h3>
+                    <p>Sweet summer corn</p>
+                    <div class="crop-details">
+                        <span class="season">Summer</span>
+                        <span class="origin">Canada, West Africa</span>
+                    </div>
+                </div>
+                <div class="crop-card" data-category="vegetables">
+                    <div class="crop-image">🥔</div>
+                    <h3>Potatoes</h3>
+                    <p>Staple root vegetable</p>
+                    <div class="crop-details">
+                        <span class="season">Fall</span>
+                        <span class="origin">All Regions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Farm Search Section -->
+    <section id="search" class="search-section">
+        <div class="container">
+            <h2>Find Farms Near You</h2>
+            <div class="search-container">
+                <div class="search-filters">
+                    <div class="filter-group">
+                        <label for="country">Country</label>
+                        <select id="country">
+                            <option value="">Select Country</option>
+                            <option value="canada">Canada</option>
+                            <option value="australia">Australia</option>
+                            <option value="switzerland">Switzerland</option>
+                            <option value="west-africa">West Africa</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="crop-type">Crop Type</label>
+                        <select id="crop-type">
+                            <option value="">All Crops</option>
+                            <option value="fruits">Fruits</option>
+                            <option value="vegetables">Vegetables</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="season">Season</label>
+                        <select id="season">
+                            <option value="">All Seasons</option>
+                            <option value="spring">Spring</option>
+                            <option value="summer">Summer</option>
+                            <option value="fall">Fall</option>
+                            <option value="winter">Winter</option>
+                        </select>
+                    </div>
+                    <button id="search-btn" class="search-button">Search Farms</button>
+                </div>
+            </div>
+            <div id="search-results" class="search-results">
+                <!-- Search results will be populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About R S Farm Ltd.</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>R S Farm Ltd. connects consumers with local farms around the world, promoting sustainable agriculture and fresh, local produce. Our platform showcases farms from diverse regions including Canada, Australia, Switzerland, and West Africa.</p>
+                    <p>We believe in supporting local farmers and providing access to the freshest fruits and vegetables while maintaining transparency about where your food comes from.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>Partner Farms</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Crop Varieties</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>4</h3>
+                        <p>Continents</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>R S Farm Ltd.</h3>
+                    <p>Connecting you with fresh, local produce from around the world.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#crops">Crops</a></li>
+                        <li><a href="#search">Find Farms</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@rsfarmltd.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 R S Farm Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
