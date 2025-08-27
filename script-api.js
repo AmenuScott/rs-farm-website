@@ -291,6 +291,7 @@ function displaySearchResults(farms) {
           <p>${farm.location}</p>
         </div>
       </div>
+      ${farm.image_url ? `<div class="farm-image"><img src="${farm.image_url}" alt="${farm.name}"/></div>` : ''}
       <div class="farm-details">
         <div class="farm-detail">
           <strong>Rating:</strong> ${farm.rating}/5 ⭐
@@ -301,6 +302,7 @@ function displaySearchResults(farms) {
         <div class="farm-detail">
           <strong>Categories:</strong> ${farm.crop_categories.join(', ') || 'No categories'}
         </div>
+        ${farm.website ? `<div class="farm-detail"><strong>Website:</strong> <a href="${farm.website}" target="_blank" rel="noopener">Visit</a></div>` : ''}
       </div>
       <button class="view-farm-btn" onclick="viewFarmDetails(${farm.id})">
         View Details
@@ -339,7 +341,9 @@ function displayFarmModal(farm) {
             <p><strong>Country:</strong> ${farm.country}</p>
             <p><strong>Rating:</strong> ${farm.rating}/5 ⭐</p>
             <p><strong>Description:</strong> ${farm.description || 'No description available'}</p>
+            ${farm.website ? `<p><strong>Website:</strong> <a href="${farm.website}" target="_blank" rel="noopener">${farm.website}</a></p>` : ''}
           </div>
+          ${farm.image_url ? `<div class="farm-hero"><img src="${farm.image_url}" alt="${farm.name}"/></div>` : ''}
           <div class="farm-crops">
             <h3>Available Crops</h3>
             ${farm.crops && farm.crops.length > 0 ? 

@@ -15,9 +15,12 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
 });
 
-// Crop Filtering
+// Crop Filtering (supports dynamically injected cards)
 const filterButtons = document.querySelectorAll('.filter-btn');
-const cropCards = document.querySelectorAll('.crop-card');
+
+function getCropCards() {
+    return Array.from(document.querySelectorAll('.crop-card'));
+}
 
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -25,11 +28,12 @@ filterButtons.forEach(button => {
         filterButtons.forEach(btn => btn.classList.remove('active'));
         // Add active class to clicked button
         button.classList.add('active');
-        
-        const filter = button.getAttribute('data-filter');
-        
-        cropCards.forEach(card => {
-            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+
+        const filter = (button.getAttribute('data-filter') || 'all').toLowerCase();
+
+        getCropCards().forEach(card => {
+            const category = (card.getAttribute('data-category') || '').toLowerCase();
+            if (filter === 'all' || category === filter) {
                 card.style.display = 'block';
                 card.style.animation = 'fadeIn 0.5s ease-in';
             } else {
@@ -250,13 +254,26 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all crop cards
-cropCards.forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(card);
-});
+// Observe all crop cards (initial)
+function observeCards(cards) {
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+}
+
+observeCards(getCropCards());
+
+// Re-apply animations when crops grid updates dynamically
+const cropsGrid = document.querySelector('.crops-grid');
+if (cropsGrid) {
+    const mo = new MutationObserver(() => {
+        observeCards(getCropCards());
+    });
+    mo.observe(cropsGrid, { childList: true });
+}
 
 // Add CSS animation for fade-in
 const style = document.createElement('style');
@@ -336,6 +353,92 @@ document.querySelectorAll('.crop-card, .farm-card').forEach(card => {
     card.addEventListener('mouseleave', function() {
         this.style.transform = 'translateY(0) scale(1)';
     });
+});
+
+// Media Carousel Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const slides = Array.from(document.querySelectorAll('.media-slide'));
+    const prevBtn = document.querySelector('.media-prev');
+    const nextBtn = document.querySelector('.media-next');
+    const indicatorsContainer = document.querySelector('.media-indicators');
+    if (!slides.length || !indicatorsContainer) return;
+
+    // Build indicators
+    slides.forEach((_, idx) => {
+        const dot = document.createElement('span');
+        dot.className = 'dot' + (idx === 0 ? ' active' : '');
+        dot.dataset.index = String(idx);
+        indicatorsContainer.appendChild(dot);
+    });
+
+    const dots = Array.from(indicatorsContainer.querySelectorAll('.dot'));
+    let current = 0;
+    let timer = null;
+
+    function show(index) {
+        // Normalize all slides hidden
+        slides.forEach((slide) => {
+            slide.classList.remove('active');
+            slide.style.opacity = '0';
+            slide.style.zIndex = '0';
+            slide.style.pointerEvents = 'none';
+            const v = slide.querySelector('video');
+            if (v) v.pause();
+        });
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        current = (index + slides.length) % slides.length;
+
+        // Activate target slide
+        const active = slides[current];
+        active.classList.add('active');
+        active.style.opacity = '1';
+        active.style.zIndex = '1';
+        active.style.pointerEvents = 'auto';
+        dots[current].classList.add('active');
+
+        // Play video if present
+        const video = active.querySelector('video');
+        if (video) {
+            video.currentTime = 0;
+            video.play().catch(() => {});
+        }
+    }
+
+    function next() { show(current + 1); }
+    function prev() { show(current - 1); }
+
+    function auto() {
+        clearInterval(timer);
+        // Longer delay if current is a video; use its duration if available
+        const activeVideo = slides[current].querySelector('video');
+        const delay = activeVideo && !isNaN(activeVideo.duration) && activeVideo.duration > 0
+            ? Math.min(activeVideo.duration * 1000, 12000)
+            : 5000;
+        timer = setInterval(next, delay);
+    }
+
+    // Init first video state
+    const firstVideo = slides[0].querySelector('video');
+    if (firstVideo) {
+        firstVideo.play().catch(() => {});
+    }
+
+    // Controls
+    if (prevBtn) prevBtn.addEventListener('click', () => { prev(); auto(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { next(); auto(); });
+    dots.forEach(dot => dot.addEventListener('click', (e) => { const idx = parseInt(e.currentTarget.dataset.index); show(idx); auto(); }));
+
+    // Auto-rotate
+    show(0);
+    auto();
+
+    // Pause on hover
+    const carousel = document.querySelector('.media-carousel');
+    if (carousel) {
+        carousel.addEventListener('mouseenter', () => clearInterval(timer));
+        carousel.addEventListener('mouseleave', auto);
+    }
 });
 
 // Add click effect for buttons

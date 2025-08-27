@@ -60,6 +60,8 @@ router.get('/', async (req, res) => {
         country: farm.country,
         location: farm.location,
         description: farm.description,
+        website: farm.website || null,
+        image_url: farm.image_url || null,
         rating: farm.rating,
         icon: farm.icon,
         crops: farm.crop_names ? farm.crop_names.split(',') : [],
@@ -154,12 +156,12 @@ router.post('/', [
       });
     }
     
-    const { name, country, location, description, rating, icon } = req.body;
+    const { name, country, location, description, website, image_url, rating, icon } = req.body;
     
     db.run(`
-      INSERT INTO farms (name, country, location, description, rating, icon)
-      VALUES (?, ?, ?, ?, ?, ?)
-    `, [name, country, location, description, rating || 0, icon || '🌾'], function(err) {
+      INSERT INTO farms (name, country, location, description, website, image_url, rating, icon)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `, [name, country, location, description, website || null, image_url || null, rating || 0, icon || '🌾'], function(err) {
       if (err) {
         console.error('Database error:', err);
         return res.status(500).json({ error: 'Failed to create farm' });

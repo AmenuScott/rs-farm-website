@@ -57,6 +57,15 @@ A comprehensive farm management platform connecting consumers with local farms w
    - API: http://localhost:3000/api
    - Health Check: http://localhost:3000/api/health
 
+6. **Bulk import real farms (optional)**
+   ```bash
+   # Prepare your data file at data/real_farms.json (see data/real_farms.sample.json for format)
+   # Run the importer (add --reset to clear existing farms/crops first)
+   npm run import:farms
+   # or
+   node scripts/import-farms.js --file data/real_farms.json --reset
+   ```
+
 ## 🏗️ Project Structure
 
 ```

@@ -1,0 +1,169 @@
+[
+  {
+    "name": "Juckerhof",
+    "country": "switzerland",
+    "location": "Seegräben, Zürich, Switzerland",
+    "description": "Farm known for pumpkins, berries, and farm experiences.",
+    "website": "https://www.juckerfarm.ch",
+    "image_url": "https://www.juckerfarm.ch/fileadmin/_processed_/b/0/csm_Juckerhof_Seegraben_1f8fcd2f36.jpg",
+    "rating": 4.8,
+    "icon": "🏔️",
+    "crops": [
+      {"name": "Pumpkins", "category": "vegetables", "season": "Fall", "origin": "Switzerland", "description": "Autumn pumpkin varieties", "emoji": "🎃", "quantity": 300, "price": 3.5, "available": true},
+      {"name": "Strawberries", "category": "fruits", "season": "Spring", "origin": "Switzerland", "description": "Pick-your-own berries", "emoji": "🍓", "quantity": 200, "price": 4.5, "available": true}
+    ]
+  },
+  {
+    "name": "Biohof Schüpfenried",
+    "country": "switzerland",
+    "location": "Uettligen, Bern, Switzerland",
+    "description": "Organic farm with seasonal vegetables and direct sales.",
+    "website": "https://www.biohof-schuepfenried.ch",
+    "image_url": "https://www.biohof-schuepfenried.ch/fileadmin/_processed_/0/9/csm_Biohof_Schuepfenried_0c3b3f1c88.jpg",
+    "rating": 4.6,
+    "icon": "🏔️",
+    "crops": [
+      {"name": "Lettuce", "category": "vegetables", "season": "Spring/Fall", "origin": "Switzerland", "description": "Crisp lettuce", "emoji": "🥬", "quantity": 180, "price": 2.2, "available": true},
+      {"name": "Tomatoes", "category": "vegetables", "season": "Summer", "origin": "Switzerland", "description": "Heirloom tomatoes", "emoji": "🍅", "quantity": 220, "price": 3.0, "available": true}
+    ]
+  },
+  {
+    "name": "Weingut Brunner",
+    "country": "switzerland",
+    "location": "Hallau, Schaffhausen, Switzerland",
+    "description": "Vineyard and farm shop in Hallau wine region.",
+    "website": "https://www.weingutbrunner.ch",
+    "image_url": "https://www.weingutbrunner.ch/fileadmin/_processed_/8/7/csm_weingut_brunner_hallau_hero_7a7f2b3f76.jpg",
+    "rating": 4.5,
+    "icon": "🏔️",
+    "crops": [
+      {"name": "Grapes", "category": "fruits", "season": "Summer", "origin": "Switzerland", "description": "Wine grapes", "emoji": "🍇", "quantity": 250, "price": 4.2, "available": true}
+    ]
+  },
+
+  {
+    "name": "Douglas Lake Ranch",
+    "country": "canada",
+    "location": "Merritt, British Columbia, Canada",
+    "description": "Historic working ranch; regional produce availability may vary.",
+    "website": "https://www.douglaslake.com",
+    "image_url": "https://www.douglaslake.com/wp-content/uploads/2019/04/Douglas-Lake-Ranch.jpg",
+    "rating": 4.6,
+    "icon": "🌾",
+    "crops": [
+      {"name": "Potatoes", "category": "vegetables", "season": "Fall", "origin": "Canada", "description": "Local potatoes", "emoji": "🥔", "quantity": 400, "price": 1.0, "available": true}
+    ]
+  },
+  {
+    "name": "Mucci Farms",
+    "country": "canada",
+    "location": "Kingsville, Ontario, Canada",
+    "description": "Greenhouse-grown tomatoes, cucumbers, and peppers.",
+    "website": "https://www.muccifarms.com",
+    "image_url": "https://www.muccifarms.com/wp-content/uploads/2021/05/greenhouse.jpg",
+    "rating": 4.7,
+    "icon": "🌾",
+    "crops": [
+      {"name": "Tomatoes", "category": "vegetables", "season": "Year-round", "origin": "Canada", "description": "Greenhouse tomatoes", "emoji": "🍅", "quantity": 500, "price": 2.2, "available": true},
+      {"name": "Cucumbers", "category": "vegetables", "season": "Year-round", "origin": "Canada", "description": "Long English cucumbers", "emoji": "🥒", "quantity": 450, "price": 1.8, "available": true}
+    ]
+  },
+  {
+    "name": "Cavendish Farms",
+    "country": "canada",
+    "location": "New Annan, Prince Edward Island, Canada",
+    "description": "PEI-based potato producer with local growers network.",
+    "website": "https://www.cavendishfarms.com",
+    "image_url": "https://www.cavendishfarms.com/media/1103/pei-potato-fields.jpg",
+    "rating": 4.5,
+    "icon": "🌾",
+    "crops": [
+      {"name": "Potatoes", "category": "vegetables", "season": "Fall", "origin": "Canada", "description": "PEI potatoes", "emoji": "🥔", "quantity": 600, "price": 1.1, "available": true}
+    ]
+  },
+
+  {
+    "name": "Anna Creek Station",
+    "country": "australia",
+    "location": "William Creek, South Australia, Australia",
+    "description": "World's largest cattle station; local produce seasonal.",
+    "website": "https://en.wikipedia.org/wiki/Anna_Creek_Station",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Anna_Creek_Station.jpg",
+    "rating": 4.4,
+    "icon": "🦘",
+    "crops": [
+      {"name": "Corn", "category": "vegetables", "season": "Summer", "origin": "Australia", "description": "Seasonal corn", "emoji": "🌽", "quantity": 120, "price": 2.0, "available": true}
+    ]
+  },
+  {
+    "name": "Mildura Citrus Growers (sample orchard)",
+    "country": "australia",
+    "location": "Mildura, Victoria, Australia",
+    "description": "Citrus region with numerous orchards and packing sheds.",
+    "website": "https://www.milduraregion.com.au",
+    "image_url": "https://www.milduraregion.com.au/media/1082/orange-grove.jpg",
+    "rating": 4.6,
+    "icon": "🦘",
+    "crops": [
+      {"name": "Oranges", "category": "fruits", "season": "Winter", "origin": "Australia", "description": "Valencia oranges", "emoji": "🍊", "quantity": 300, "price": 3.0, "available": true},
+      {"name": "Grapes", "category": "fruits", "season": "Summer", "origin": "Australia", "description": "Table grapes", "emoji": "🍇", "quantity": 260, "price": 3.8, "available": true}
+    ]
+  },
+  {
+    "name": "Queensland Strawberry Growers (sample farm)",
+    "country": "australia",
+    "location": "Caboolture, Queensland, Australia",
+    "description": "Strawberry region; multiple farms offer direct sales in season.",
+    "website": "https://qldstrawberries.com.au",
+    "image_url": "https://qldstrawberries.com.au/wp-content/uploads/2018/10/strawberries.jpg",
+    "rating": 4.5,
+    "icon": "🦘",
+    "crops": [
+      {"name": "Strawberries", "category": "fruits", "season": "Spring", "origin": "Australia", "description": "Fresh strawberries", "emoji": "🍓", "quantity": 280, "price": 4.0, "available": true}
+    ]
+  },
+
+  {
+    "name": "Akate Farms",
+    "country": "west-africa",
+    "location": "Kumasi, Ashanti, Ghana",
+    "description": "One of Ghana's large integrated farms; diversified operations.",
+    "website": "https://www.akatefarms.com",
+    "image_url": "https://www.akatefarms.com/images/akate-farm.jpg",
+    "rating": 4.5,
+    "icon": "🌍",
+    "crops": [
+      {"name": "Tomatoes", "category": "vegetables", "season": "Summer", "origin": "Ghana", "description": "Local tomatoes", "emoji": "🍅", "quantity": 220, "price": 2.2, "available": true},
+      {"name": "Corn", "category": "vegetables", "season": "Summer", "origin": "Ghana", "description": "Maize", "emoji": "🌽", "quantity": 350, "price": 1.1, "available": true}
+    ]
+  },
+  {
+    "name": "Blue Skies Ghana (Outgrower network)",
+    "country": "west-africa",
+    "location": "Nsawam, Eastern Region, Ghana",
+    "description": "Fresh-cut fruit producer working with local farmers.",
+    "website": "https://www.blueskies.com",
+    "image_url": "https://www.blueskies.com/wp-content/uploads/2018/06/Blue-Skies-Ghana.jpg",
+    "rating": 4.6,
+    "icon": "🌍",
+    "crops": [
+      {"name": "Mangoes", "category": "fruits", "season": "Summer", "origin": "Ghana", "description": "Kent mangoes", "emoji": "🥭", "quantity": 260, "price": 3.2, "available": true},
+      {"name": "Pineapples", "category": "fruits", "season": "Year-round", "origin": "Ghana", "description": "MD2 pineapples", "emoji": "🍍", "quantity": 300, "price": 2.8, "available": true}
+    ]
+  },
+  {
+    "name": "Okomu Oil Palm Company (produce market)",
+    "country": "west-africa",
+    "location": "Ovia South-West, Edo State, Nigeria",
+    "description": "Palm plantations; local produce markets in the region.",
+    "website": "http://www.okomu.com",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Oil_palm_plantation.jpg",
+    "rating": 4.3,
+    "icon": "🌍",
+    "crops": [
+      {"name": "Tomatoes", "category": "vegetables", "season": "Summer", "origin": "Nigeria", "description": "Regional tomatoes", "emoji": "🍅", "quantity": 200, "price": 2.0, "available": true}
+    ]
+  }
+]
+
+

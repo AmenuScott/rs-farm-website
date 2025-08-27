@@ -1,0 +1,132 @@
+[
+  {
+    "name": "Green Fields Farm",
+    "country": "canada",
+    "location": "Guelph, Ontario, Canada",
+    "description": "Certified organic produce farm",
+    "rating": 4.7,
+    "icon": "🌾",
+    "crops": [
+      {
+        "name": "Apples",
+        "category": "fruits",
+        "season": "Fall",
+        "origin": "Canada",
+        "description": "Crisp honeycrisp apples",
+        "emoji": "🍎",
+        "quantity": 120,
+        "price": 2.5,
+        "available": true
+      },
+      {
+        "name": "Carrots",
+        "category": "vegetables",
+        "season": "Year-round",
+        "origin": "Canada",
+        "description": "Sweet Nantes carrots",
+        "emoji": "🥕",
+        "quantity": 300,
+        "price": 1.2,
+        "available": true
+      }
+    ]
+  },
+  {
+    "name": "Outback Harvest",
+    "country": "australia",
+    "location": "Mildura, Victoria, Australia",
+    "description": "Citrus and stone fruit orchard",
+    "rating": 4.6,
+    "icon": "🦘",
+    "crops": [
+      {
+        "name": "Oranges",
+        "category": "fruits",
+        "season": "Winter",
+        "origin": "Australia",
+        "description": "Valencia oranges",
+        "emoji": "🍊",
+        "quantity": 200,
+        "price": 3.0,
+        "available": true
+      },
+      {
+        "name": "Peaches",
+        "category": "fruits",
+        "season": "Summer",
+        "origin": "Australia",
+        "description": "Juicy summer peaches",
+        "emoji": "🍑",
+        "quantity": 150,
+        "price": 4.0,
+        "available": true
+      }
+    ]
+  },
+  {
+    "name": "Swiss Alpine Produce",
+    "country": "switzerland",
+    "location": "Sion, Valais, Switzerland",
+    "description": "High-altitude vineyard and vegetables",
+    "rating": 4.8,
+    "icon": "🏔️",
+    "crops": [
+      {
+        "name": "Grapes",
+        "category": "fruits",
+        "season": "Summer",
+        "origin": "Switzerland",
+        "description": "Fendant grapes",
+        "emoji": "🍇",
+        "quantity": 180,
+        "price": 4.5,
+        "available": true
+      },
+      {
+        "name": "Lettuce",
+        "category": "vegetables",
+        "season": "Spring/Fall",
+        "origin": "Switzerland",
+        "description": "Crisphead lettuce",
+        "emoji": "🥬",
+        "quantity": 220,
+        "price": 2.0,
+        "available": true
+      }
+    ]
+  },
+  {
+    "name": "West African Heritage Farm",
+    "country": "west-africa",
+    "location": "Kumasi, Ashanti, Ghana",
+    "description": "Traditional mixed-crop African farm",
+    "rating": 4.5,
+    "icon": "🌍",
+    "crops": [
+      {
+        "name": "Mangoes",
+        "category": "fruits",
+        "season": "Summer",
+        "origin": "Ghana",
+        "description": "Kent mangoes",
+        "emoji": "🥭",
+        "quantity": 250,
+        "price": 3.5,
+        "available": true
+      },
+      {
+        "name": "Corn",
+        "category": "vegetables",
+        "season": "Summer",
+        "origin": "Ghana",
+        "description": "Sweet maize",
+        "emoji": "🌽",
+        "quantity": 400,
+        "price": 1.0,
+        "available": true
+      }
+    ]
+  }
+]
+
+

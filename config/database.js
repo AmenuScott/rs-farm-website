@@ -23,11 +23,17 @@ function initializeDatabase() {
     country TEXT NOT NULL,
     location TEXT NOT NULL,
     description TEXT,
+    website TEXT,
+    image_url TEXT,
     rating REAL DEFAULT 0,
     icon TEXT DEFAULT '🌾',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
   )`);
+
+  // Attempt to add missing columns for backward compatibility (SQLite ignores duplicate column add)
+  db.run(`ALTER TABLE farms ADD COLUMN website TEXT`, (err) => { if (err && !/duplicate column name/i.test(err.message)) console.warn('ALTER TABLE farms add website:', err.message); });
+  db.run(`ALTER TABLE farms ADD COLUMN image_url TEXT`, (err) => { if (err && !/duplicate column name/i.test(err.message)) console.warn('ALTER TABLE farms add image_url:', err.message); });
 
   // Create crops table
   db.run(`CREATE TABLE IF NOT EXISTS crops (

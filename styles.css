@@ -116,6 +116,115 @@ body {
     line-height: 1.6;
 }
 
+/* Media Section */
+.media-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f8fff8 0%, #eef9ef 100%);
+}
+
+.media-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2d5a27;
+    margin-bottom: 2rem;
+}
+
+.media-carousel {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.media-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: scale(1.02);
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.media-slide.active {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+}
+
+.media-slide img, .media-slide video {
+    width: 100%;
+    height: 560px;
+    object-fit: cover;
+    display: block;
+}
+
+.media-controls {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    z-index: 3;
+}
+
+.media-prev, .media-next {
+    background: rgba(0,0,0,0.35);
+    color: #fff;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.media-prev:hover, .media-next:hover {
+    background: rgba(0,0,0,0.5);
+    transform: scale(1.05);
+}
+
+.media-indicators {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 3;
+}
+
+.media-indicators .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.6);
+    transition: background 0.3s ease;
+}
+
+.media-indicators .dot.active {
+    background: #4caf50;
+}
+
+@media (max-width: 768px) {
+    .media-slide img, .media-slide video {
+        height: 320px;
+    }
+}
+
 .cta-button {
     display: inline-block;
     background: linear-gradient(45deg, #4caf50, #45a049);
