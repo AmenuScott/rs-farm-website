@@ -1,162 +1,341 @@
-# 🌾 R S Farm Ltd.
+# R S Farm Ltd. - Farm Management System
 
-A modern, responsive farming website that showcases fresh crops (fruits and vegetables) and allows users to search for farms in different countries including Canada, Australia, Switzerland, and West Africa.
+A comprehensive farm management platform connecting consumers with local farms worldwide. Features a modern frontend with a robust Node.js/Express backend API.
 
-## ✨ Features
+## 🌟 Features
 
-### 🏠 **Home Section**
-- Hero section with animated floating crop emojis
-- Call-to-action button to find farms
-- Modern gradient background design
+### Frontend
+- **Responsive Design**: Modern, mobile-friendly interface
+- **Crop Showcase**: Browse fruits and vegetables by category and season
+- **Farm Search**: Find farms by country, crop type, and season
+- **Interactive UI**: Smooth animations and user experience
+- **Real-time Search**: Dynamic filtering and search results
 
-### 🍎 **Crops Showcase**
-- **Fruits**: Apples, Oranges, Grapes, Mangoes, Strawberries, Peaches
-- **Vegetables**: Carrots, Tomatoes, Lettuce, Broccoli, Corn, Potatoes
-- Interactive filtering (All Crops, Fruits, Vegetables)
-- Beautiful crop cards with seasonal and origin information
-- Smooth animations and hover effects
+### Backend API
+- **RESTful API**: Complete CRUD operations for farms and crops
+- **Authentication**: JWT-based user authentication system
+- **Database**: SQLite database with automatic initialization
+- **Validation**: Input validation and error handling
+- **Security**: Helmet.js security headers and CORS protection
 
-### 🔍 **Farm Search**
-- Search farms by:
-  - **Country**: Canada, Australia, Switzerland, West Africa
-  - **Crop Type**: Fruits, Vegetables, or All
-  - **Season**: Spring, Summer, Fall, Winter, or All
-- Real-time search results
-- Detailed farm information including ratings, specialties, and locations
-- Loading animations and no-results handling
-
-### 📱 **Responsive Design**
-- Mobile-first approach
-- Hamburger menu for mobile navigation
-- Responsive grid layouts
-- Touch-friendly interactions
-
-### 🎨 **Modern UI/UX**
-- Clean, professional design
-- Smooth scrolling navigation
-- Hover effects and animations
-- Beautiful color scheme with green farming theme
-- Font Awesome icons integration
-
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- No additional software installation required
+- Node.js (v16 or higher)
+- npm or yarn
 
 ### Installation
-1. Download or clone the project files
-2. Open `index.html` in your web browser
-3. That's it! The website is ready to use
 
-### File Structure
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd Farm
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp env.example .env
+   # Edit .env with your configuration
+   ```
+
+4. **Start the backend server**
+   ```bash
+   # Development mode with auto-reload
+   npm run dev
+   
+   # Production mode
+   npm start
+   ```
+
+5. **Access the application**
+   - Frontend: http://localhost:3000
+   - API: http://localhost:3000/api
+   - Health Check: http://localhost:3000/api/health
+
+## 🏗️ Project Structure
+
 ```
 Farm/
-├── index.html          # Main HTML file
-├── styles.css          # CSS styles and responsive design
-├── script.js           # JavaScript functionality
-└── README.md           # Project documentation
+├── index.html              # Main HTML file
+├── styles.css              # CSS styles
+├── script.js               # Original frontend JavaScript
+├── script-api.js           # API-integrated frontend JavaScript
+├── server.js               # Express server entry point
+├── package.json            # Node.js dependencies
+├── env.example             # Environment configuration template
+├── config/
+│   └── database.js         # Database configuration and initialization
+├── routes/
+│   ├── farms.js            # Farm management API routes
+│   ├── crops.js            # Crop management API routes
+│   └── auth.js             # Authentication API routes
+├── data/                   # Database files (auto-created)
+│   └── .gitkeep
+└── README.md               # This file
 ```
 
-## 🛠️ Technologies Used
+## 📚 API Documentation
 
-- **HTML5**: Semantic markup and structure
-- **CSS3**: Modern styling with Flexbox, Grid, and animations
-- **JavaScript (ES6+)**: Interactive functionality and dynamic content
-- **Font Awesome**: Icons for enhanced visual appeal
-- **Google Fonts**: Poppins font family for typography
+### Base URL
+```
+http://localhost:3000/api
+```
 
-## 🎯 Key Functionality
+### Authentication Endpoints
 
-### Crop Filtering
-- Click on filter buttons to show specific crop categories
-- Smooth transitions between different views
-- Responsive grid layout that adapts to screen size
+#### Register User
+```http
+POST /api/auth/register
+Content-Type: application/json
 
-### Farm Search System
-- Multi-criteria search functionality
-- Sample farm data for demonstration
-- Real-time filtering and results display
-- Beautiful farm cards with detailed information
+{
+  "username": "farmer123",
+  "email": "farmer@example.com",
+  "password": "securepassword"
+}
+```
 
-### Mobile Navigation
-- Collapsible hamburger menu
-- Touch-friendly mobile interface
-- Responsive design for all screen sizes
+#### Login User
+```http
+POST /api/auth/login
+Content-Type: application/json
 
-## 🌍 Supported Countries
+{
+  "username": "farmer123",
+  "password": "securepassword"
+}
+```
 
-1. **Canada** 🇨🇦
-   - Maple Valley Farm (Ontario)
-   - Prairie Harvest Farm (Manitoba)
+#### Get Profile (Protected)
+```http
+GET /api/auth/profile
+Authorization: Bearer <jwt-token>
+```
 
-2. **Australia** 🇦🇺
-   - Sunny Coast Orchard (Queensland)
-   - Outback Fresh Farm (New South Wales)
+### Farm Endpoints
 
-3. **Switzerland** 🇨🇭
-   - Alpine Meadows Farm (Bern)
-   - Swiss Valley Farm (Zurich)
+#### Get All Farms
+```http
+GET /api/farms?country=canada&crop_type=fruits&season=summer
+```
 
-4. **West Africa** 🌍
-   - Tropical Paradise Farm (Ghana)
-   - West African Heritage Farm (Nigeria)
+#### Get Farm by ID
+```http
+GET /api/farms/1
+```
 
-## 🎨 Design Features
+#### Create Farm
+```http
+POST /api/farms
+Content-Type: application/json
+Authorization: Bearer <jwt-token>
 
-- **Color Scheme**: Green-based farming theme (#4caf50, #2d5a27)
-- **Typography**: Modern Poppins font family
-- **Animations**: Floating crops, fade-in effects, hover transitions
-- **Layout**: CSS Grid and Flexbox for responsive design
-- **Shadows**: Subtle depth and modern card design
+{
+  "name": "New Farm",
+  "country": "canada",
+  "location": "Ontario, Canada",
+  "description": "Organic farm",
+  "rating": 4.5,
+  "icon": "🌾"
+}
+```
 
-## 📱 Responsive Breakpoints
+#### Update Farm
+```http
+PUT /api/farms/1
+Content-Type: application/json
+Authorization: Bearer <jwt-token>
 
-- **Desktop**: 1200px and above
-- **Tablet**: 768px - 1199px
-- **Mobile**: Below 768px
-- **Small Mobile**: Below 480px
+{
+  "rating": 4.8,
+  "description": "Updated description"
+}
+```
 
-## 🔧 Customization
+#### Delete Farm
+```http
+DELETE /api/farms/1
+Authorization: Bearer <jwt-token>
+```
 
-### Adding New Crops
-1. Add new crop cards in the HTML
-2. Include appropriate `data-category` attributes
-3. Add corresponding CSS styles if needed
+#### Get Farm Statistics
+```http
+GET /api/farms/stats/overview
+```
 
-### Adding New Farms
-1. Add farm data to the `farmsData` array in `script.js`
-2. Include all required properties (name, country, crops, season, etc.)
+### Crop Endpoints
 
-### Changing Colors
-1. Modify CSS custom properties in `styles.css`
-2. Update the green theme colors as needed
+#### Get All Crops
+```http
+GET /api/crops?category=fruits&season=summer
+```
 
-## 🌟 Future Enhancements
+#### Get Crop by ID
+```http
+GET /api/crops/1
+```
 
-- **User Authentication**: Login/signup system
-- **Farm Reviews**: User rating and review system
-- **Interactive Map**: Geographic farm locations
-- **Seasonal Updates**: Dynamic crop availability
-- **E-commerce**: Direct farm-to-consumer ordering
-- **Multi-language Support**: Internationalization
+#### Create Crop
+```http
+POST /api/crops
+Content-Type: application/json
+Authorization: Bearer <jwt-token>
 
-## 📄 License
+{
+  "name": "Blueberries",
+  "category": "fruits",
+  "season": "summer",
+  "origin": "Canada, USA",
+  "description": "Sweet summer berries",
+  "emoji": "🫐"
+}
+```
 
-This project is open source and available under the [MIT License](LICENSE).
+#### Get Crops by Category
+```http
+GET /api/crops/category/fruits
+```
+
+#### Get Crops by Season
+```http
+GET /api/crops/season/summer
+```
+
+#### Get Crop Statistics
+```http
+GET /api/crops/stats/overview
+```
+
+## 🗄️ Database Schema
+
+### Farms Table
+- `id` - Primary key
+- `name` - Farm name
+- `country` - Country location
+- `location` - Specific location
+- `description` - Farm description
+- `rating` - Farm rating (0-5)
+- `icon` - Display icon
+- `created_at` - Creation timestamp
+- `updated_at` - Last update timestamp
+
+### Crops Table
+- `id` - Primary key
+- `name` - Crop name
+- `category` - fruits or vegetables
+- `season` - Growing season
+- `origin` - Geographic origin
+- `description` - Crop description
+- `emoji` - Display emoji
+- `created_at` - Creation timestamp
+
+### Farm_Crops Table (Junction)
+- `id` - Primary key
+- `farm_id` - Foreign key to farms
+- `crop_id` - Foreign key to crops
+- `quantity` - Available quantity
+- `price` - Price per unit
+- `available` - Availability status
+
+### Users Table
+- `id` - Primary key
+- `username` - Unique username
+- `email` - Unique email
+- `password_hash` - Hashed password
+- `role` - User role
+- `created_at` - Creation timestamp
+
+## 🔧 Configuration
+
+### Environment Variables
+- `PORT` - Server port (default: 3000)
+- `NODE_ENV` - Environment (development/production)
+- `JWT_SECRET` - JWT signing secret
+- `DATABASE_URL` - Database connection string
+- `CORS_ORIGIN` - CORS allowed origin
+- `LOG_LEVEL` - Logging level
+
+### Database
+The system uses SQLite by default, which is perfect for development and small to medium deployments. For production, you can easily switch to PostgreSQL, MySQL, or MongoDB by updating the database configuration.
+
+## 🧪 Testing
+
+Run the test suite:
+```bash
+npm test
+```
+
+## 🚀 Deployment
+
+### Development
+```bash
+npm run dev
+```
+
+### Production
+```bash
+npm start
+```
+
+### Docker (Optional)
+```bash
+# Build image
+docker build -t rs-farm-backend .
+
+# Run container
+docker run -p 3000:3000 rs-farm-backend
+```
+
+## 🔒 Security Features
+
+- **JWT Authentication**: Secure token-based authentication
+- **Password Hashing**: bcrypt.js for password security
+- **Input Validation**: Express-validator for request validation
+- **Security Headers**: Helmet.js for security headers
+- **CORS Protection**: Configurable cross-origin resource sharing
+- **SQL Injection Protection**: Parameterized queries
+
+## 📱 Frontend Integration
+
+The frontend automatically integrates with the backend API. To use the API-integrated version:
+
+1. Include `script-api.js` instead of `script.js` in your HTML
+2. Ensure the backend server is running
+3. The frontend will automatically fetch data from the API
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
 
-## 📞 Contact
+## 📄 License
 
-- **Email**: info@rsfarmltd.com
-- **Phone**: +1 (555) 123-4567
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🆘 Support
+
+For support and questions:
+- Email: info@rsfarmltd.com
+- Phone: +1 (555) 123-4567
+
+## 🔄 Changelog
+
+### v1.0.0
+- Initial release with full-stack implementation
+- Complete farm and crop management system
+- JWT authentication
+- SQLite database with sample data
+- RESTful API endpoints
+- Modern responsive frontend
 
 ---
 
-**Built with ❤️ for the farming community**
-
-*Connecting consumers with fresh, local produce from around the world.*
-"# rs-farm-website" 
+**Built with ❤️ for sustainable agriculture and local farming communities** 
