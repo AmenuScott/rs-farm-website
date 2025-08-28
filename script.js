@@ -95,99 +95,100 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function createFarmCard(farm) {
-    return `
-        <div class="card">
-            <div class="card-content">
-                <div class="card-header">
-                    <h3>${farm.name}</h3>
-                    <div class="card-info">
-                        <p>${farm.address}</p>
-                        <p>${farm.contact || 'Contact not available'}</p>
-                    </div>
-                </div>
-                <div class="products">
-                    ${farm.products.map(product => `
-                        <span class="product-tag">${product}</span>
-                    `).join('')}
-                </div>
-                <button class="view-details-btn">View Details</button>
-            </div>
-        </div>
-    `;
-}
+// Sample farm data (replace with your actual API data)
+const farms = [
+    {
+        name: "Green Valley Farm",
+        address: "123 Farm Road, Toronto, Canada",
+        products: ["Tomatoes", "Lettuce", "Carrots"],
+        contact: "+1 234-567-8900"
+    },
+    {
+        name: "Sunshine Fields",
+        address: "456 Rural Lane, Sydney, Australia",
+        products: ["Wheat", "Corn", "Soybeans"],
+        contact: "+61 2-9876-5432"
+    },
+    {
+        name: "Alpine Meadows",
+        address: "789 Mountain Path, Zurich, Switzerland",
+        products: ["Cheese", "Milk", "Herbs"],
+        contact: "+41 44-123-4567"
+    },
+    {
+        name: "African Green Farms",
+        address: "321 Village Road, Lagos, West Africa",
+        products: ["Cassava", "Yams", "Plantains"],
+        contact: "+234 1-234-5678"
+    }
+];
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Get DOM elements
     const searchInput = document.getElementById('search-input');
     const countryFilter = document.getElementById('country-filter');
     const searchButton = document.getElementById('search-btn');
     const searchResults = document.getElementById('search-results');
 
-    // Store all farms for filtering
-    let allFarms = [];
+    // Function to filter farms
+    function filterFarms() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedCountry = countryFilter.value;
 
-    // Fetch farms data
-    async function fetchFarms() {
-        try {
-            const response = await fetch('/api/farms');
-            allFarms = await response.json();
-            filterAndDisplayFarms();
-        } catch (error) {
-            console.error('Error fetching farms:', error);
-        }
-    }
+        const filteredFarms = farms.filter(farm => {
+            const matchesSearch = 
+                farm.name.toLowerCase().includes(searchTerm) ||
+                farm.products.some(product => 
+                    product.toLowerCase().includes(searchTerm));
 
-    // Filter farms based on search criteria
-    function filterAndDisplayFarms() {
-        const searchTerm = searchInput.value.toLowerCase().trim();
-        const selectedCountry = countryFilter.value.trim();
+            const matchesCountry = 
+                !selectedCountry || 
+                farm.address.includes(selectedCountry);
 
-        const filteredFarms = allFarms.filter(farm => {
-            // Check if farm has required properties
-            if (!farm || !farm.name || !farm.address || !farm.products) {
-                return false;
-            }
-
-            // Country filter
-            if (selectedCountry) {
-                const farmCountry = farm.address.split(',').pop().trim();
-                if (!farmCountry.toLowerCase().includes(selectedCountry.toLowerCase())) {
-                    return false;
-                }
-            }
-
-            // Search term filter
-            if (searchTerm) {
-                return farm.name.toLowerCase().includes(searchTerm) ||
-                       farm.address.toLowerCase().includes(searchTerm) ||
-                       farm.products.some(product => 
-                           product.toLowerCase().includes(searchTerm));
-            }
-
-            return true;
+            return matchesSearch && matchesCountry;
         });
 
-        // Display filtered farms
-        searchResults.innerHTML = filteredFarms.length > 0 
-            ? filteredFarms.map(farm => createFarmCard(farm)).join('')
-            : '<div class="no-results">No farms found matching your criteria</div>';
+        displayFarms(filteredFarms);
+    }
+
+    // Function to display farms
+    function displayFarms(farmsToDisplay) {
+        searchResults.innerHTML = farmsToDisplay.length ? 
+            farmsToDisplay.map(farm => createFarmCard(farm)).join('') :
+            '<div class="no-results">No farms found matching your criteria</div>';
+    }
+
+    // Function to create farm card
+    function createFarmCard(farm) {
+        return `
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3>${farm.name}</h3>
+                        <div class="card-info">
+                            <p>${farm.address}</p>
+                            <p>${farm.contact}</p>
+                        </div>
+                    </div>
+                    <div class="products">
+                        ${farm.products.map(product => 
+                            `<span class="product-tag">${product}</span>`
+                        ).join('')}
+                    </div>
+                    <button class="view-details-btn">View Details</button>
+                </div>
+            </div>
+        `;
     }
 
     // Event listeners
-    searchInput.addEventListener('input', filterAndDisplayFarms);
-    countryFilter.addEventListener('change', filterAndDisplayFarms);
-    searchButton.addEventListener('click', filterAndDisplayFarms);
-    
-    // Optional: Add enter key support for search
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            filterAndDisplayFarms();
-        }
+    searchButton.addEventListener('click', filterFarms);
+    searchInput.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') filterFarms();
     });
+    countryFilter.addEventListener('change', filterFarms);
 
-    // Initial load
-    fetchFarms();
+    // Initial display
+    displayFarms(farms);
 });
 
 
