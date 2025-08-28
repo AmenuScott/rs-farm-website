@@ -291,7 +291,7 @@ function displaySearchResults(farms) {
           <p>${farm.location}</p>
         </div>
       </div>
-      ${farm.image_url ? `<div class="farm-image"><img src="${farm.image_url}" alt="${farm.name}"/></div>` : ''}
+      ${farm.image_url ? `<div class="farm-image"><img src="${farm.image_url}" alt="${farm.name}" onerror="this.style.display='none'"/></div>` : ''}
       <div class="farm-details">
         <div class="farm-detail">
           <strong>Rating:</strong> ${farm.rating}/5 ⭐
@@ -343,7 +343,7 @@ function displayFarmModal(farm) {
             <p><strong>Description:</strong> ${farm.description || 'No description available'}</p>
             ${farm.website ? `<p><strong>Website:</strong> <a href="${farm.website}" target="_blank" rel="noopener">${farm.website}</a></p>` : ''}
           </div>
-          ${farm.image_url ? `<div class="farm-hero"><img src="${farm.image_url}" alt="${farm.name}"/></div>` : ''}
+          ${farm.image_url ? `<div class="farm-hero"><img src="${farm.image_url}" alt="${farm.name}" onerror="this.style.display='none'"/></div>` : ''}
           <div class="farm-crops">
             <h3>Available Crops</h3>
             ${farm.crops && farm.crops.length > 0 ? 
