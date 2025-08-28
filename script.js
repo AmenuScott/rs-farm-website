@@ -111,6 +111,7 @@ function createFarmCard(farm) {
                         <span class="product-tag">${product}</span>
                     `).join('')}
                 </div>
+                <button class="view-details-btn">View Details</button>
             </div>
         </div>
     `;

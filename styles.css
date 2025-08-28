@@ -160,7 +160,14 @@ body {
 /* Search Section */
 .search-section {
     padding: 4rem 2rem;
-    background: linear-gradient(to bottom, #f9f9f9, #ffffff);
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.search-section h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
 }
 
 .search-container {
@@ -174,29 +181,25 @@ body {
 
 .search-filters {
     display: flex;
+    justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
 }
 
-.search-input, .filter-select {
+.search-input {
+    flex: 0 1 400px;
     padding: 0.8rem 1rem;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     font-size: 1rem;
 }
 
-.search-input {
-    flex: 1;
-    min-width: 200px;
-}
-
 .filter-select {
-    min-width: 150px;
-}
-
-.search-input:focus, .filter-select:focus {
-    border-color: #27ae60;
-    outline: none;
+    width: 200px;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
 }
 
 /* Enhanced Farm Cards */
@@ -216,6 +219,8 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    text-align: left;
+    position: relative;
 }
 
 .card:hover {
@@ -260,6 +265,26 @@ body {
     margin-top: auto;
     padding-top: 1rem;
     border-top: 1px solid #eee;
+}
+
+.view-details-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #27ae60;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.view-details-btn:hover {
+    background: #219a52;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(39, 174, 96, 0.2);
 }
 
 /* Footer */
