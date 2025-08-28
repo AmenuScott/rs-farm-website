@@ -228,10 +228,10 @@ const mockFarms = [
 
 // Farm images mapping (add more images as needed)
 const farmImages = {
-    'Canada': 'images/mapple.jpeg',
-    'Australia': 'images/mapple.jpeg',
-    'Switzerland': 'images/mapple.jpeg',
-    'West Africa': 'images/mapple.jpeg'
+    'Canada': 'images/mapple.jpg',
+    'Australia': 'images/mapple.jpg',
+    'Switzerland': 'images/mapple.jpg',
+    'West Africa': 'images/mapple.jpg'
 };
 
 // Replace the fetchFarms function with this:
