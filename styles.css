@@ -184,10 +184,11 @@ body {
     justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 
 .search-input {
-    flex: 0 1 400px;
+    flex: 0 1 300px;
     padding: 0.8rem 1rem;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
@@ -195,11 +196,30 @@ body {
 }
 
 .filter-select {
-    width: 200px;
+    flex: 0 1 200px;
     padding: 0.8rem 1rem;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     font-size: 1rem;
+}
+
+/* Search Button Styles */
+.search-button {
+    padding: 0.8rem 1.5rem;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.search-button:hover {
+    background: #219a52;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(39, 174, 96, 0.2);
 }
 
 /* Enhanced Farm Cards */

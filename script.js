@@ -117,5 +117,63 @@ function createFarmCard(farm) {
     `;
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Get DOM elements
+    const searchInput = document.getElementById('search-input');
+    const countryFilter = document.getElementById('country-filter');
+    const searchButton = document.getElementById('search-btn');
+    const searchResults = document.getElementById('search-results');
+
+    // Store all farms for filtering
+    let allFarms = [];
+
+    // Fetch farms data
+    async function fetchFarms() {
+        try {
+            const response = await fetch('/api/farms');
+            allFarms = await response.json();
+            filterAndDisplayFarms();
+        } catch (error) {
+            console.error('Error fetching farms:', error);
+        }
+    }
+
+    // Filter farms based on search criteria
+    function filterAndDisplayFarms() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedCountry = countryFilter.value;
+
+        const filteredFarms = allFarms.filter(farm => {
+            const matchesSearch = farm.name.toLowerCase().includes(searchTerm) ||
+                                farm.address.toLowerCase().includes(searchTerm) ||
+                                farm.products.some(product => 
+                                    product.toLowerCase().includes(searchTerm));
+            
+            const matchesCountry = !selectedCountry || 
+                                 farm.address.includes(selectedCountry);
+
+            return matchesSearch && matchesCountry;
+        });
+
+        // Display filtered farms
+        searchResults.innerHTML = filteredFarms
+            .map(farm => createFarmCard(farm))
+            .join('');
+    }
+
+    // Event listeners
+    searchButton.addEventListener('click', filterAndDisplayFarms);
+    
+    // Optional: Add enter key support for search
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            filterAndDisplayFarms();
+        }
+    });
+
+    // Initial load
+    fetchFarms();
+});
+
 
 
