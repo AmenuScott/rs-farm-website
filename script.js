@@ -95,19 +95,142 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Fetch farms from API
-async function fetchFarms() {
-    try {
-        const response = await fetch('/api/farms');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching farms:', error);
-        return [];
+// Mock data for farms
+const mockFarms = [
+    // Canadian Farms
+    {
+        name: "Maple Valley Organics",
+        address: "123 Fraser Valley Road, Vancouver, Canada",
+        products: ["Maple Syrup", "Berries", "Apples", "Honey"],
+        contact: "+1 604-555-0123"
+    },
+    {
+        name: "Prairie Wheat Fields",
+        address: "456 Saskatchewan Drive, Regina, Canada",
+        products: ["Wheat", "Canola", "Barley", "Oats"],
+        contact: "+1 306-555-0124"
+    },
+    {
+        name: "Ontario Fresh Farms",
+        address: "789 Lake Shore Blvd, Toronto, Canada",
+        products: ["Corn", "Tomatoes", "Peppers", "Cucumbers"],
+        contact: "+1 416-555-0125"
+    },
+    {
+        name: "Nova Scotia Orchards",
+        address: "321 Atlantic Way, Halifax, Canada",
+        products: ["Apples", "Pears", "Plums", "Cherries"],
+        contact: "+1 902-555-0126"
+    },
+    {
+        name: "Quebec Dairy Valley",
+        address: "567 Rue Principale, Montreal, Canada",
+        products: ["Cheese", "Milk", "Yogurt", "Butter"],
+        contact: "+1 514-555-0127"
+    },
+
+    // Australian Farms
+    {
+        name: "Outback Cattle Station",
+        address: "101 Red Earth Road, Darwin, Australia",
+        products: ["Beef", "Leather", "Wool"],
+        contact: "+61 8-555-0128"
+    },
+    {
+        name: "Sunshine Coast Fruit Farm",
+        address: "202 Pacific Way, Brisbane, Australia",
+        products: ["Mangoes", "Pineapples", "Bananas", "Avocados"],
+        contact: "+61 7-555-0129"
+    },
+    {
+        name: "Victoria Wine Valley",
+        address: "303 Grape Lane, Melbourne, Australia",
+        products: ["Grapes", "Wine", "Olives", "Cheese"],
+        contact: "+61 3-555-0130"
+    },
+    {
+        name: "Tasmania Apple Orchards",
+        address: "404 Island Circuit, Hobart, Australia",
+        products: ["Apples", "Pears", "Cherries", "Berries"],
+        contact: "+61 3-555-0131"
+    },
+    {
+        name: "Western Wheat Belt",
+        address: "505 Desert Road, Perth, Australia",
+        products: ["Wheat", "Barley", "Canola", "Oats"],
+        contact: "+61 8-555-0132"
+    },
+
+    // Swiss Farms
+    {
+        name: "Alpine Dairy Collective",
+        address: "111 Bergstrasse, Zurich, Switzerland",
+        products: ["Swiss Cheese", "Alpine Butter", "Yogurt", "Cream"],
+        contact: "+41 44-555-0133"
+    },
+    {
+        name: "Lucerne Valley Farm",
+        address: "222 Seeweg, Lucerne, Switzerland",
+        products: ["Herbs", "Mountain Tea", "Flowers", "Honey"],
+        contact: "+41 41-555-0134"
+    },
+    {
+        name: "Geneva Vineyard Estate",
+        address: "333 Lac Road, Geneva, Switzerland",
+        products: ["Grapes", "Wine", "Fruit Preserves"],
+        contact: "+41 22-555-0135"
+    },
+    {
+        name: "Bernese Mountain Farm",
+        address: "444 Alpweg, Bern, Switzerland",
+        products: ["Cheese", "Mountain Herbs", "Wool", "Meat"],
+        contact: "+41 31-555-0136"
+    },
+    {
+        name: "Swiss Chocolate Farm",
+        address: "555 Kakaoweg, Basel, Switzerland",
+        products: ["Cocoa", "Chocolate", "Dairy", "Nuts"],
+        contact: "+41 61-555-0137"
+    },
+
+    // West African Farms
+    {
+        name: "Nigerian Cassava Estate",
+        address: "123 Yam Street, Lagos, West Africa",
+        products: ["Cassava", "Yams", "Plantains", "Palm Oil"],
+        contact: "+234 1-555-0138"
+    },
+    {
+        name: "Ghana Cocoa Plantation",
+        address: "456 Cocoa Road, Accra, West Africa",
+        products: ["Cocoa", "Plantains", "Coconuts", "Tropical Fruits"],
+        contact: "+233 302-555-0139"
+    },
+    {
+        name: "Ivory Coast Coffee Farm",
+        address: "789 Coffee Lane, Abidjan, West Africa",
+        products: ["Coffee", "Cocoa", "Cashews", "Mangoes"],
+        contact: "+225 22-555-0140"
+    },
+    {
+        name: "Senegal Rice Fields",
+        address: "321 River Road, Dakar, West Africa",
+        products: ["Rice", "Peanuts", "Millet", "Sorghum"],
+        contact: "+221 33-555-0141"
+    },
+    {
+        name: "Mali Cotton Plantation",
+        address: "654 Sahel Street, Bamako, West Africa",
+        products: ["Cotton", "Corn", "Millet", "Vegetables"],
+        contact: "+223 20-555-0142"
     }
+];
+
+// Replace the fetchFarms function with this:
+async function fetchFarms() {
+    // Simulate API delay
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return mockFarms;
 }
 
 // Update the DOMContentLoaded event listener
