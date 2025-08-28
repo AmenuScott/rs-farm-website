@@ -226,6 +226,14 @@ const mockFarms = [
     }
 ];
 
+// Farm images mapping (add more images as needed)
+const farmImages = {
+    'Canada': 'images/mapple.jpeg',
+    'Australia': 'images/mapple.jpeg',
+    'Switzerland': 'images/mapple.jpeg',
+    'West Africa': 'images/mapple.jpeg'
+};
+
 // Replace the fetchFarms function with this:
 async function fetchFarms() {
     // Simulate API delay
@@ -288,7 +296,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                             `<span class="product-tag">${product}</span>`
                         ).join('')}
                     </div>
-                    <button class="view-details-btn">View Details</button>
+                    <button class="view-details-btn" onclick="showFarmDetails(${JSON.stringify(farm)
+                        .replace(/"/g, '&quot;')})">View Details</button>
                 </div>
             </div>
         `;
@@ -314,6 +323,62 @@ function displayError(message) {
         </div>
     `;
 }
+
+// Add modal functionality
+function showFarmDetails(farm) {
+    const modal = document.getElementById('farmModal');
+    const modalBody = modal.querySelector('.modal-body');
+    const country = farm.address.includes('Canada') ? 'Canada' 
+                 : farm.address.includes('Australia') ? 'Australia'
+                 : farm.address.includes('Switzerland') ? 'Switzerland'
+                 : 'West Africa';
+    
+    modalBody.innerHTML = `
+        <div class="farm-detail-content">
+            <div class="farm-detail-image-container">
+                <img src="${farmImages[country]}" alt="${farm.name}" class="farm-detail-image">
+            </div>
+            <div class="farm-detail-info">
+                <h2>${farm.name}</h2>
+                <p><strong>Address:</strong> ${farm.address}</p>
+                <p><strong>Contact:</strong> ${farm.contact}</p>
+                <p><strong>Products:</strong></p>
+                <div class="farm-products-list">
+                    ${farm.products.map(product => 
+                        `<span class="product-tag">${product}</span>`
+                    ).join('')}
+                </div>
+            </div>
+        </div>
+    `;
+    
+    modal.classList.add('show');
+}
+
+// Add close modal functionality
+document.addEventListener('DOMContentLoaded', () => {
+    // ...existing code...
+
+    const modal = document.getElementById('farmModal');
+    const closeModal = document.querySelector('.close-modal');
+
+    closeModal.addEventListener('click', () => {
+        modal.classList.remove('show');
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            modal.classList.remove('show');
+        }
+    });
+});
 
 
 
