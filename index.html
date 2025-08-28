@@ -81,42 +81,18 @@
             <h2>Find Farms Near You</h2>
             <div class="search-container">
                 <div class="search-filters">
-                    <div class="filter-group">
-                        <label for="country">Country</label>
-                        <select id="country">
-                            <option value="">Select Country</option>
-                            <option value="canada">Canada</option>
-                            <option value="australia">Australia</option>
-                            <option value="switzerland">Switzerland</option>
-                            <option value="west-africa">West Africa</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="crop-type">Crop Type</label>
-                        <select id="crop-type">
-                            <option value="">All Crops</option>
-                            <option value="fruits">Fruits</option>
-                            <option value="vegetables">Vegetables</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="season">Season</label>
-                        <select id="season">
-                            <option value="">All Seasons</option>
-                            <option value="spring">Spring</option>
-                            <option value="summer">Summer</option>
-                            <option value="fall">Fall</option>
-                            <option value="winter">Winter</option>
-                        </select>
-                    </div>
-                    <button id="search-btn" class="search-button">Search Farms</button>
+                    <input type="text" id="search-input" placeholder="Search farms..." class="search-input">
+                    <select id="country-filter" class="filter-select">
+                        <option value="">All Countries</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Switzerland">Switzerland</option>
+                        <option value="West Africa">West Africa</option>
+                    </select>
                 </div>
-            </div>
-            <div id="search-results" class="search-results">
-                <!-- Search results will be populated here -->
-            </div>
-            <div class="loading-indicator" style="display: none;">
-                <!-- Loading spinner will appear here -->
+                <div id="search-results" class="search-results">
+                    <!-- Farm cards will be dynamically inserted here -->
+                </div>
             </div>
         </div>
     </section>
