@@ -140,28 +140,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Filter farms based on search criteria
     function filterAndDisplayFarms() {
-        const searchTerm = searchInput.value.toLowerCase();
-        const selectedCountry = countryFilter.value;
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        const selectedCountry = countryFilter.value.trim();
 
         const filteredFarms = allFarms.filter(farm => {
-            const matchesSearch = farm.name.toLowerCase().includes(searchTerm) ||
-                                farm.address.toLowerCase().includes(searchTerm) ||
-                                farm.products.some(product => 
-                                    product.toLowerCase().includes(searchTerm));
-            
-            const matchesCountry = !selectedCountry || 
-                                 farm.address.includes(selectedCountry);
+            // Check if farm has required properties
+            if (!farm || !farm.name || !farm.address || !farm.products) {
+                return false;
+            }
 
-            return matchesSearch && matchesCountry;
+            // Country filter
+            if (selectedCountry) {
+                const farmCountry = farm.address.split(',').pop().trim();
+                if (!farmCountry.toLowerCase().includes(selectedCountry.toLowerCase())) {
+                    return false;
+                }
+            }
+
+            // Search term filter
+            if (searchTerm) {
+                return farm.name.toLowerCase().includes(searchTerm) ||
+                       farm.address.toLowerCase().includes(searchTerm) ||
+                       farm.products.some(product => 
+                           product.toLowerCase().includes(searchTerm));
+            }
+
+            return true;
         });
 
         // Display filtered farms
-        searchResults.innerHTML = filteredFarms
-            .map(farm => createFarmCard(farm))
-            .join('');
+        searchResults.innerHTML = filteredFarms.length > 0 
+            ? filteredFarms.map(farm => createFarmCard(farm)).join('')
+            : '<div class="no-results">No farms found matching your criteria</div>';
     }
 
     // Event listeners
+    searchInput.addEventListener('input', filterAndDisplayFarms);
+    countryFilter.addEventListener('change', filterAndDisplayFarms);
     searchButton.addEventListener('click', filterAndDisplayFarms);
     
     // Optional: Add enter key support for search
