@@ -38,6 +38,19 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+app.get('/api/farms', async (req, res) => {
+    try {
+        const farms = await Farm.findAll(); // Assuming you're using a database
+        res.json(farms);
+    } catch (error) {
+        console.error('Error fetching farms:', error);
+        res.status(500).json({ 
+            error: 'Failed to fetch farms',
+            message: error.message 
+        });
+    }
+});
+
 // Serve the main HTML file for all other routes (SPA support)
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));

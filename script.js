@@ -95,54 +95,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Sample farm data (replace with your actual API data)
-const farms = [
-    {
-        name: "Green Valley Farm",
-        address: "123 Farm Road, Toronto, Canada",
-        products: ["Tomatoes", "Lettuce", "Carrots"],
-        contact: "+1 234-567-8900"
-    },
-    {
-        name: "Sunshine Fields",
-        address: "456 Rural Lane, Sydney, Australia",
-        products: ["Wheat", "Corn", "Soybeans"],
-        contact: "+61 2-9876-5432"
-    },
-    {
-        name: "Alpine Meadows",
-        address: "789 Mountain Path, Zurich, Switzerland",
-        products: ["Cheese", "Milk", "Herbs"],
-        contact: "+41 44-123-4567"
-    },
-    {
-        name: "African Green Farms",
-        address: "321 Village Road, Lagos, West Africa",
-        products: ["Cassava", "Yams", "Plantains"],
-        contact: "+234 1-234-5678"
+// Fetch farms from API
+async function fetchFarms() {
+    try {
+        const response = await fetch('/api/farms');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching farms:', error);
+        return [];
     }
-];
+}
 
-document.addEventListener('DOMContentLoaded', () => {
+// Update the DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', async () => {
     const searchInput = document.getElementById('search-input');
     const countryFilter = document.getElementById('country-filter');
     const searchButton = document.getElementById('search-btn');
     const searchResults = document.getElementById('search-results');
+
+    // Store farms data globally for filtering
+    let allFarms = await fetchFarms();
 
     // Function to filter farms
     function filterFarms() {
         const searchTerm = searchInput.value.toLowerCase();
         const selectedCountry = countryFilter.value;
 
-        const filteredFarms = farms.filter(farm => {
+        const filteredFarms = allFarms.filter(farm => {
             const matchesSearch = 
                 farm.name.toLowerCase().includes(searchTerm) ||
-                farm.products.some(product => 
-                    product.toLowerCase().includes(searchTerm));
+                (farm.products && farm.products.some(product => 
+                    product.toLowerCase().includes(searchTerm)));
 
             const matchesCountry = 
                 !selectedCountry || 
-                farm.address.includes(selectedCountry);
+                (farm.address && farm.address.includes(selectedCountry));
 
             return matchesSearch && matchesCountry;
         });
@@ -188,8 +179,18 @@ document.addEventListener('DOMContentLoaded', () => {
     countryFilter.addEventListener('change', filterFarms);
 
     // Initial display
-    displayFarms(farms);
+    displayFarms(allFarms);
 });
+
+function displayError(message) {
+    const searchResults = document.getElementById('search-results');
+    searchResults.innerHTML = `
+        <div class="error-message">
+            <p>😕 ${message}</p>
+            <p>Please try again later or contact support if the problem persists.</p>
+        </div>
+    `;
+}
 
 
 
