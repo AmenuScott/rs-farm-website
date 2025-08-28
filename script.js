@@ -95,18 +95,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function createFarmCard(farm) {
-    return `
-        <div class="card">
-            <img src="${farm.image || 'images/default-farm.jpg'}" alt="${farm.name}" class="card-image">
-            <div class="card-content">
-                <h3>${farm.name}</h3>
-                <p>${farm.description}</p>
-                <p>Address: ${farm.address}</p>
-                <p>Products: ${farm.products.join(', ')}</p>
-            </div>
-        </div>
-    `;
-}
 
 

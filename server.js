@@ -21,8 +21,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from the public directory
-app.use(express.static('public'));
-app.use('/images', express.static('images')); // Add this line
+app.use(express.static(__dirname));
+app.use('/images', express.static('images'));
 
 // API Routes
 app.use('/api/farms', farmsRoutes);
