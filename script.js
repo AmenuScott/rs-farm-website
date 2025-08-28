@@ -324,8 +324,8 @@ function displayError(message) {
     `;
 }
 
-// Add modal functionality
-function showFarmDetails(farm) {
+// Make showFarmDetails globally available
+window.showFarmDetails = function(farm) {
     const modal = document.getElementById('farmModal');
     const modalBody = modal.querySelector('.modal-body');
     const country = farm.address.includes('Canada') ? 'Canada' 

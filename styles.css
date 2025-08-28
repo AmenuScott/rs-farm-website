@@ -649,29 +649,21 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.3s ease;
 }
 
 .modal.show {
     display: flex;
-    opacity: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
     background-color: #fff;
-    margin: auto;
     padding: 2rem;
     border-radius: 15px;
     width: 90%;
     max-width: 800px;
     position: relative;
-    transform: translateY(-50px);
-    transition: transform 0.3s ease;
-}
-
-.modal.show .modal-content {
-    transform: translateY(0);
 }
 
 .close-modal {
@@ -681,15 +673,6 @@ body {
     font-size: 2rem;
     cursor: pointer;
     color: #666;
-    transition: color 0.3s ease;
-}
-
-.close-modal:hover {
-    color: #000;
-}
-
-.modal-body {
-    margin-top: 1rem;
 }
 
 .farm-detail-content {
