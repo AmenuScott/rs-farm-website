@@ -98,11 +98,14 @@ document.addEventListener('DOMContentLoaded', () => {
 function createFarmCard(farm) {
     return `
         <div class="card">
-            <img src="${farm.image || 'images/default-farm.jpg'}" alt="${farm.name}" class="card-image">
             <div class="card-content">
-                <h3>${farm.name}</h3>
-                <p><i class="fas fa-map-marker-alt"></i> ${farm.address}</p>
-                <p><i class="fas fa-phone"></i> ${farm.contact || 'Contact not available'}</p>
+                <div class="card-header">
+                    <h3>${farm.name}</h3>
+                    <div class="card-info">
+                        <p>${farm.address}</p>
+                        <p>${farm.contact || 'Contact not available'}</p>
+                    </div>
+                </div>
                 <div class="products">
                     ${farm.products.map(product => `
                         <span class="product-tag">${product}</span>
