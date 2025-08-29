@@ -439,9 +439,10 @@ body {
 /* Footer */
 .footer {
     background: linear-gradient(to bottom, #2c3e50, #1a252f);
-    color: #ffffff;
+    color: #fff;
     padding: 4rem 2rem 2rem;
     position: relative;
+    font-size: 1.05rem;
 }
 
 .footer::before {
@@ -463,22 +464,15 @@ body {
     margin-bottom: 3rem;
 }
 
-.footer-section h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: #27ae60;
-}
-
+.footer-section h3,
 .footer-section h4 {
-    font-size: 1.2rem;
+    color: #27ae60;
     margin-bottom: 1rem;
-    color: #2ecc71;
 }
 
 .footer-section p {
-    color: #a8b2bc;
-    margin-bottom: 0.8rem;
-    line-height: 1.6;
+    color: #e0e0e0;
+    margin-bottom: 0.5rem;
 }
 
 .footer-section ul {
@@ -487,32 +481,26 @@ body {
 }
 
 .footer-section ul li {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 .footer-section ul li a {
     color: #a8b2bc;
     text-decoration: none;
-    transition: color 0.3s ease;
-    display: inline-block;
+    transition: color 0.3s;
 }
 
 .footer-section ul li a:hover {
     color: #27ae60;
-    transform: translateX(5px);
 }
 
 .footer-bottom {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 2rem;
+    padding-top: 1rem;
     text-align: center;
-}
-
-.footer-bottom p {
     color: #a8b2bc;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 /* Contact info hover effects */
