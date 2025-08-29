@@ -253,7 +253,7 @@ body {
     transform: scale(1.1);
 }
 
-/* Search Section */
+/* Farm Search Section */
 .search-section {
     padding: 4rem 2rem;
     background: #f9f9f9;
@@ -278,7 +278,7 @@ body {
 .search-filters {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
     margin-bottom: 2rem;
     flex-wrap: wrap;
 }
@@ -291,31 +291,26 @@ body {
     font-size: 1rem;
 }
 
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .filter-select {
-    flex: 0 1 200px;
+    width: 200px;
     padding: 0.8rem 1rem;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     font-size: 1rem;
+    margin-top: 0.3em;
 }
 
-/* Search Button Styles */
-.search-button {
-    padding: 0.8rem 1.5rem;
-    background: #27ae60;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-.search-button:hover {
-    background: #219a52;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(39, 174, 96, 0.2);
+.filter-group label {
+    font-weight: 600;
+    color: #27ae60;
+    margin-bottom: 0.5em;
+    font-size: 1.05em;
 }
 
 /* Enhanced Farm Cards */
@@ -331,23 +326,15 @@ body {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
     height: 100%;
-    text-align: left;
-    position: relative;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-
-.card-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.15);
 }
 
 .card-content {
@@ -373,14 +360,22 @@ body {
     font-size: 0.95rem;
 }
 
-.card-info p {
-    margin-bottom: 0.5rem;
-}
-
 .products {
     margin-top: auto;
     padding-top: 1rem;
     border-top: 1px solid #eee;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.product-tag {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    margin: 0.2rem 0;
 }
 
 .view-details-btn {
@@ -392,7 +387,7 @@ body {
     border-radius: 25px;
     font-weight: 500;
     margin-top: 1rem;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
     border: none;
     cursor: pointer;
 }
@@ -403,18 +398,7 @@ body {
     box-shadow: 0 4px 10px rgba(39, 174, 96, 0.2);
 }
 
-/* Product Tags */
-.product-tag {
-    display: inline-block;
-    background: #e8f5e9;
-    color: #2e7d32;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    margin: 0.2rem;
-}
-
-/* No Results Found */
+/* No Results Message */
 .no-results {
     text-align: center;
     padding: 2rem;
@@ -739,6 +723,17 @@ body {
 
     .farm-detail-content {
         grid-template-columns: 1fr;
+    }
+
+    .search-section {
+        padding: 2rem 1rem;
+    }
+    .search-container {
+        padding: 1rem;
+    }
+    .search-results {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }
 

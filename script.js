@@ -232,7 +232,6 @@ async function fetchFarms() {
 document.addEventListener('DOMContentLoaded', async () => {
     const searchInput = document.getElementById('search-input');
     const countryFilter = document.getElementById('country-filter');
-    const searchButton = document.getElementById('search-btn');
     const searchResults = document.getElementById('search-results');
 
     let allFarms = await fetchFarms();
@@ -262,6 +261,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             farmsToDisplay.map(farm => createFarmCard(farm)).join('') :
             '<div class="no-results">No farms found matching your criteria</div>';
     }
+
+    // Trigger filtering on input and dropdown change
+    searchInput.addEventListener('input', filterFarms);
+    countryFilter.addEventListener('change', filterFarms);
+
+    // Initial display
+    displayFarms(allFarms);
 
     function createFarmCard(farm) {
         return `
@@ -326,20 +332,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    searchButton.addEventListener('click', filterFarms);
-    searchInput.addEventListener('keyup', (e) => {
-        if (e.key === 'Enter') filterFarms();
-    });
-    countryFilter.addEventListener('change', filterFarms);
-
     searchResults.addEventListener('click', function(e) {
         if (e.target.classList.contains('view-details-btn')) {
             const farm = JSON.parse(e.target.getAttribute('data-farm'));
             showFarmDetails(farm);
         }
     });
-
-    displayFarms(allFarms);
 });
 
 function displayError(message) {
