@@ -7,7 +7,6 @@ hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-// Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
@@ -95,141 +94,149 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Farm images mapping
-const farmImages = {
-    'Canada': 'images/canada-farm.jpg',
-    'Australia': 'images/australia-farm.jpg',
-    'Switzerland': 'images/swiss-farm.jpg',
-    'West Africa': 'images/africa-farm.jpg'
-};
-
 // Utility to remove numbers from address
 function removeNumbers(str) {
     return str.replace(/[0-9]/g, '').replace(/\s+/g, ' ').trim();
 }
 
-// Sample mock farms (no contact info, numbers removed from address)
+// Sample mock farms with unique images
 const mockFarms = [
     {
         name: "Maple Valley Organics",
         address: "Fraser Valley Road, Vancouver, Canada",
-        products: ["Maple Syrup", "Berries", "Apples", "Honey"]
+        products: ["Maple Syrup", "Berries", "Apples", "Honey"],
+        image: "images/mapple.jpg"
     },
     {
         name: "Prairie Wheat Fields",
         address: "Saskatchewan Drive, Regina, Canada",
-        products: ["Wheat", "Canola", "Barley", "Oats"]
+        products: ["Wheat", "Canola", "Barley", "Oats"],
+        image: "images/prairie-wheat.jpg"
     },
     {
         name: "Ontario Fresh Farms",
         address: "Lake Shore Blvd, Toronto, Canada",
-        products: ["Corn", "Tomatoes", "Peppers", "Cucumbers"]
+        products: ["Corn", "Tomatoes", "Peppers", "Cucumbers"],
+        image: "images/ontario-fresh.jpg"
     },
     {
         name: "Nova Scotia Orchards",
         address: "Atlantic Way, Halifax, Canada",
-        products: ["Apples", "Pears", "Plums", "Cherries"]
+        products: ["Apples", "Pears", "Plums", "Cherries"],
+        image: "images/nova-scotia.jpg"
     },
     {
         name: "Quebec Dairy Valley",
         address: "Rue Principale, Montreal, Canada",
-        products: ["Cheese", "Milk", "Yogurt", "Butter"]
+        products: ["Cheese", "Milk", "Yogurt", "Butter"],
+        image: "images/quebec-dairy.jpg"
     },
     {
         name: "Outback Cattle Station",
         address: "Red Earth Road, Darwin, Australia",
-        products: ["Beef", "Leather", "Wool"]
+        products: ["Beef", "Leather", "Wool"],
+        image: "images/outback-cattle.jpg"
     },
     {
         name: "Sunshine Coast Fruit Farm",
         address: "Pacific Way, Brisbane, Australia",
-        products: ["Mangoes", "Pineapples", "Bananas", "Avocados"]
+        products: ["Mangoes", "Pineapples", "Bananas", "Avocados"],
+        image: "images/sunshine-coast.jpg"
     },
     {
         name: "Victoria Wine Valley",
         address: "Grape Lane, Melbourne, Australia",
-        products: ["Grapes", "Wine", "Olives", "Cheese"]
+        products: ["Grapes", "Wine", "Olives", "Cheese"],
+        image: "images/victoria-wine.jpg"
     },
     {
         name: "Tasmania Apple Orchards",
         address: "Island Circuit, Hobart, Australia",
-        products: ["Apples", "Pears", "Cherries", "Berries"]
+        products: ["Apples", "Pears", "Cherries", "Berries"],
+        image: "images/tasmania-apple.jpg"
     },
     {
         name: "Western Wheat Belt",
         address: "Desert Road, Perth, Australia",
-        products: ["Wheat", "Barley", "Canola", "Oats"]
+        products: ["Wheat", "Barley", "Canola", "Oats"],
+        image: "images/western-wheat.jpg"
     },
     {
         name: "Alpine Dairy Collective",
         address: "Bergstrasse, Zurich, Switzerland",
-        products: ["Swiss Cheese", "Alpine Butter", "Yogurt", "Cream"]
+        products: ["Swiss Cheese", "Alpine Butter", "Yogurt", "Cream"],
+        image: "images/alpine-dairy.jpg"
     },
     {
         name: "Lucerne Valley Farm",
         address: "Seeweg, Lucerne, Switzerland",
-        products: ["Herbs", "Mountain Tea", "Flowers", "Honey"]
+        products: ["Herbs", "Mountain Tea", "Flowers", "Honey"],
+        image: "images/lucerne-valley.jpg"
     },
     {
         name: "Geneva Vineyard Estate",
         address: "Lac Road, Geneva, Switzerland",
-        products: ["Grapes", "Wine", "Fruit Preserves"]
+        products: ["Grapes", "Wine", "Fruit Preserves"],
+        image: "images/geneva-vineyard.jpg"
     },
     {
         name: "Bernese Mountain Farm",
         address: "Alpweg, Bern, Switzerland",
-        products: ["Cheese", "Mountain Herbs", "Wool", "Meat"]
+        products: ["Cheese", "Mountain Herbs", "Wool", "Meat"],
+        image: "images/bernese-mountain.jpg"
     },
     {
         name: "Swiss Chocolate Farm",
         address: "Kakaoweg, Basel, Switzerland",
-        products: ["Cocoa", "Chocolate", "Dairy", "Nuts"]
+        products: ["Cocoa", "Chocolate", "Dairy", "Nuts"],
+        image: "images/swiss-chocolate.jpg"
     },
     {
         name: "Nigerian Cassava Estate",
         address: "Yam Street, Lagos, West Africa",
-        products: ["Cassava", "Yams", "Plantains", "Palm Oil"]
+        products: ["Cassava", "Yams", "Plantains", "Palm Oil"],
+        image: "images/nigerian-cassava.jpg"
     },
     {
         name: "Ghana Cocoa Plantation",
         address: "Cocoa Road, Accra, West Africa",
-        products: ["Cocoa", "Plantains", "Coconuts", "Tropical Fruits"]
+        products: ["Cocoa", "Plantains", "Coconuts", "Tropical Fruits"],
+        image: "images/ghana-cocoa.jpg"
     },
     {
         name: "Ivory Coast Coffee Farm",
         address: "Coffee Lane, Abidjan, West Africa",
-        products: ["Coffee", "Cocoa", "Cashews", "Mangoes"]
+        products: ["Coffee", "Cocoa", "Cashews", "Mangoes"],
+        image: "images/ivory-coast-coffee.jpg"
     },
     {
         name: "Senegal Rice Fields",
         address: "River Road, Dakar, West Africa",
-        products: ["Rice", "Peanuts", "Millet", "Sorghum"]
+        products: ["Rice", "Peanuts", "Millet", "Sorghum"],
+        image: "images/senegal-rice.jpg"
     },
     {
         name: "Mali Cotton Plantation",
         address: "Sahel Street, Bamako, West Africa",
-        products: ["Cotton", "Corn", "Millet", "Vegetables"]
+        products: ["Cotton", "Corn", "Millet", "Vegetables"],
+        image: "images/mali-cotton.jpg"
     }
 ];
 
-// Replace the fetchFarms function with this:
+// Simulate API delay
 async function fetchFarms() {
-    // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 500));
     return mockFarms;
 }
 
-// Update the DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', async () => {
     const searchInput = document.getElementById('search-input');
     const countryFilter = document.getElementById('country-filter');
     const searchButton = document.getElementById('search-btn');
     const searchResults = document.getElementById('search-results');
 
-    // Store farms data globally for filtering
     let allFarms = await fetchFarms();
 
-    // Function to filter farms
     function filterFarms() {
         const searchTerm = searchInput.value.toLowerCase();
         const selectedCountry = countryFilter.value;
@@ -250,14 +257,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         displayFarms(filteredFarms);
     }
 
-    // Function to display farms
     function displayFarms(farmsToDisplay) {
         searchResults.innerHTML = farmsToDisplay.length ? 
             farmsToDisplay.map(farm => createFarmCard(farm)).join('') :
             '<div class="no-results">No farms found matching your criteria</div>';
     }
 
-    // Create farm card (no contact info)
     function createFarmCard(farm) {
         return `
             <div class="card">
@@ -279,19 +284,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         `;
     }
 
-    // Show farm details in modal
     function showFarmDetails(farm) {
         const modal = document.getElementById('farmModal');
         const modalBody = modal.querySelector('.modal-body');
-        let country = "West Africa";
-        if (farm.address.includes("Canada")) country = "Canada";
-        else if (farm.address.includes("Australia")) country = "Australia";
-        else if (farm.address.includes("Switzerland")) country = "Switzerland";
-
         modalBody.innerHTML = `
             <div class="farm-detail-content">
                 <div class="farm-detail-image-container">
-                    <img src="${farmImages[country]}" alt="${farm.name}" class="farm-detail-image">
+                    <img src="${farm.image}" alt="${farm.name}" class="farm-detail-image">
                 </div>
                 <div class="farm-detail-info">
                     <h2>${farm.name}</h2>
@@ -308,7 +307,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         modal.classList.add('show');
     }
 
-    // Modal close logic
     const modal = document.getElementById('farmModal');
     const closeModal = document.querySelector('.close-modal');
 
@@ -322,21 +320,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    // Close modal with Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('show')) {
             modal.classList.remove('show');
         }
     });
 
-    // Event listeners
     searchButton.addEventListener('click', filterFarms);
     searchInput.addEventListener('keyup', (e) => {
         if (e.key === 'Enter') filterFarms();
     });
     countryFilter.addEventListener('change', filterFarms);
 
-    // Delegate click for view details buttons
     searchResults.addEventListener('click', function(e) {
         if (e.target.classList.contains('view-details-btn')) {
             const farm = JSON.parse(e.target.getAttribute('data-farm'));
@@ -344,7 +339,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    // Initial display
     displayFarms(allFarms);
 });
 
