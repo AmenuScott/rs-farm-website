@@ -82,14 +82,16 @@
             <div class="search-container">
                 <div class="search-filters">
                     <input type="text" id="search-input" placeholder="Search farms..." class="search-input">
-                    <select id="country-filter" class="filter-select">
-                        <option value="">All Countries</option>
-                        <option value="Canada">Canada</option>
-                        <option value="Australia">Australia</option>
-                        <option value="Switzerland">Switzerland</option>
-                        <option value="West Africa">West Africa</option>
-                    </select>
-                    <button id="search-btn" class="search-button">Search Farms</button>
+                    <div class="filter-group" style="min-width:200px;">
+                        <label for="country-filter" style="font-weight:600; color:#27ae60; margin-bottom:0.5em;">Select a country to filter farms:</label>
+                        <select id="country-filter" class="filter-select">
+                            <option value="">All Countries</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="West Africa">West Africa</option>
+                        </select>
+                    </div>
                 </div>
                 <div id="search-results" class="search-results">
                     <!-- Farm cards will be inserted here -->
