@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return str.replace(/[0-9]/g, '').replace(/\s+/g, ' ').trim();
     }
 
-    // Function to create farm card
+    // Function to create farm card (NO contact info)
     function createFarmCard(farm) {
         return `
             <div class="card">
@@ -286,7 +286,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <h3>${farm.name}</h3>
                         <div class="card-info">
                             <p>${removeNumbers(farm.address)}</p>
-                            <p>${removeNumbers(farm.contact)}</p>
                         </div>
                     </div>
                     <div class="products">
@@ -321,7 +320,7 @@ function displayError(message) {
     `;
 }
 
-// Make showFarmDetails globally available
+// Modal details (NO contact info)
 window.showFarmDetails = function(farm) {
     const modal = document.getElementById('farmModal');
     const modalBody = modal.querySelector('.modal-body');
@@ -338,7 +337,6 @@ window.showFarmDetails = function(farm) {
             <div class="farm-detail-info">
                 <h2>${farm.name}</h2>
                 <p><strong>Address:</strong> ${removeNumbers(farm.address)}</p>
-                <p><strong>Contact:</strong> ${removeNumbers(farm.contact)}</p>
                 <p><strong>Products:</strong></p>
                 <div class="farm-products-list">
                     ${farm.products.map(product => 
