@@ -459,6 +459,12 @@ body {
     margin-bottom: 0.5rem;
 }
 
+.footer-section a {
+    color: #00c36e;
+    &:hover {
+        color: #65b0a0;
+    }
+}
 .footer-section ul {
     list-style: none;
     padding: 0;
