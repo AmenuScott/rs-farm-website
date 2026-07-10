@@ -3,219 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R S Farm Ltd. - Discover Fresh Crops Worldwide</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>Security Notice | RS Farms Ltd</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f5f6fa;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+            padding:20px;
+        }
+
+        .container{
+            max-width:800px;
+            background:#fff;
+            border-radius:12px;
+            padding:40px;
+            box-shadow:0 10px 30px rgba(0,0,0,.15);
+            text-align:center;
+            border-top:8px solid #d32f2f;
+        }
+
+        .icon{
+            font-size:70px;
+            color:#d32f2f;
+            margin-bottom:20px;
+        }
+
+        h1{
+            color:#d32f2f;
+            margin-bottom:20px;
+            font-size:34px;
+        }
+
+        p{
+            color:#444;
+            line-height:1.8;
+            font-size:18px;
+            margin-bottom:18px;
+        }
+
+        .notice{
+            background:#fff4e5;
+            border-left:6px solid #ff9800;
+            padding:20px;
+            border-radius:8px;
+            margin:30px 0;
+            text-align:left;
+        }
+
+        footer{
+            margin-top:30px;
+            color:#777;
+            font-size:14px;
+        }
+
+        @media(max-width:768px){
+            .container{
+                padding:25px;
+            }
+
+            h1{
+                font-size:28px;
+            }
+
+            p{
+                font-size:16px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="images/favicon.png" alt="RS Farm Logo" style="height: 2em; vertical-align: middle; margin-right: 0.5em;">
-                <span>R S Farm Ltd.</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#crops">Crops</a></li>
-                <li><a href="#search">Find Farms</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="floating-elements">
-            <span class="floating-element">🌾</span>
-            <span class="floating-element">🥕</span>
-            <span class="floating-element">🌿</span>
-            <span class="floating-element">🍅</span>
-            <span class="floating-element">🥬</span>
-            <span class="floating-element">🌽</span>
-        </div>
-        <div class="hero-content">
-            <h1>Discover Fresh Crops from Around the World</h1>
-            <p>Connect with local farms in Canada, Australia, Switzerland, West Africa, and beyond. Find the freshest fruits and vegetables directly from source.</p>
-            <a href="#search" class="cta-button">Find Farms Near You</a>
-        </div>
-    </section>
+<div class="container">
 
-    <!-- Media Showcase -->
-    <section id="media" class="media-section">
-        <div class="container">
-            <h2>Farm Life In Motion</h2>
-            <div class="media-carousel">
-                <div class="media-slide active">
-                    <img src="images/1.jpeg" alt="Farm Image 1">
-                </div>
-                <div class="media-slide">
-                    <img src="images/2.jpeg" alt="Farm Image 2">
-                </div>
-                <div class="media-slide">
-                    <img src="images/3.jpeg" alt="Farm Image 3">
-                </div>
-                <div class="media-slide">
-                    <video src="images/4.mp4" muted playsinline></video>
-                </div>
-                <div class="media-slide">
-                    <video src="images/5.mp4" muted playsinline></video>
-                </div>
-                 <div class="media-slide">
-                    <video src="images/6.MOV" muted playsinline></video>
-                </div>
-                <div class="media-slide">
-                    <video src="images/9.MOV" muted playsinline></video>
-                </div>
-                <div class="media-slide">
-                    <video src="images/10.MOV" muted playsinline></video>
-                </div>
-                <div class="media-slide">
-                    <video src="images/11.MOV" muted playsinline></video>
-                </div>
-                <div class="media-slide">
-                    <video src="images/12.MOV" muted playsinline></video>
-                </div>
-                <div class="media-controls">
-                    <button class="media-prev">←</button>
-                    <button class="media-next">→</button>
-                </div>
-                <div class="media-indicators"></div>
-            </div>
-        </div>
-    </section>
+    <div class="icon">⚠️</div>
 
-        <!-- Gallery Section -->
-    <section id="gallery" class="gallery-section">
-        <div class="container">
-            <h2>Farm Gallery</h2>
-            <div class="farm-gallery">
-                <img src="images/pic1.jpg" alt="pic1">
-                <img src="images/pic2.jpg" alt="pic2">
-                <img src="images/pic3.jpg" alt="pic3">
-                <img src="images/pic4.jpg" alt="pic4">
-                <img src="images/pic5.jpg" alt="pic5">
-                <img src="images/pic6.jpg" alt="pic6">
-                <img src="images/pic7.jpg" alt="pic7">
-                <img src="images/pic8.jpg" alt="pic8">
-                <img src="images/pic9.jpg" alt="pic9">
-                <img src="images/pic10.jpg" alt="pic10">
-                <img src="images/pic11.jpg" alt="pic11">
-                <img src="images/pic12.jpg" alt="pic12">
-                <img src="images/pic13.jpg" alt="pic13">
-                <img src="images/pic14.jpg" alt="pic14">
-                <img src="images/pic15.jpg" alt="pic15">
-                <img src="images/pic16.jpg" alt="pic16">
-                <img src="images/pic17.jpg" alt="pic17">
-                <img src="images/pic18.jpg" alt="pic18">
-                <img src="images/pic19.jpg" alt="pic19">
-                <img src="images/8.jpg" alt="8">
-            </div>
-        </div>
-    </section>
+    <h1>Security Notice</h1>
 
-                
+    <p>
+        We have identified security concerns affecting this website and are currently carrying out investigations and remediation efforts.
+    </p>
 
-    <!-- Farm Search Section -->
-    <section id="search" class="search-section">
-        <div class="container">
-            <h2>Find Farms Near You</h2>
-            <div class="search-container">
-                <div class="search-filters">
-                    <input type="text" id="search-input" placeholder="Search farms..." class="search-input">
-                    <div class="filter-group" style="min-width:200px;">
-                        <label for="country-filter" style="font-weight:600; color:#27ae60; margin-bottom:0.5em;">Select a country to filter farms:</label>
-                        <select id="country-filter" class="filter-select">
-                            <option value="">All Countries</option>
-                            <option value="Canada">Canada</option>
-                            <option value="Australia">Australia</option>
-                            <option value="Switzerland">Switzerland</option>
-                            <option value="West Africa">West Africa</option>
-                        </select>
-                    </div>
-                </div>
-                <div id="search-results" class="search-results">
-                    <!-- Farm cards will be inserted here -->
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="notice">
+        <strong>Important Information</strong><br><br>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="about-header">
-                <h2>About R S Farm Ltd.</h2>
-                <div class="section-divider">
-                    <span class="divider-leaf">🌿</span>
-                </div>
-            </div>
-            <div class="about-content">
-                <div class="about-card">
-                    <div class="about-icon">🌾</div>
-                    <h3>Our Mission</h3>
-                    <p>Connecting communities with sustainable farming practices and providing fresh, quality produce worldwide.</p>
-                </div>
-                <div class="about-card">
-                    <div class="about-icon">🌱</div>
-                    <h3>Our Vision</h3>
-                    <p>Creating a global network of responsible farms that prioritize both environmental sustainability and community well-being.</p>
-                </div>
-                <div class="about-card">
-                    <div class="about-icon">🤝</div>
-                    <h3>Our Values</h3>
-                    <p>Committed to sustainability, quality, transparency, and supporting local farming communities across the globe.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        As a precautionary measure, visitors are advised not to submit sensitive personal information, passwords, payment details, or confidential documents through this website until further notice.
 
-
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>R S Farm Ltd.</h3>
-                    <p>Connecting you with fresh, local produce from around the world.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#search">Find Farms</a></li>
-                        <li><a href="#about">About</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Us</h4>
-                    <p>Email: <a href="mailto:rsfarmsltd202@gmail.com">rsfarmsltd202@gmail.com</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 R S Farm Ltd. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Farm Modal -->
-    <div id="farmModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-body">
-                <!-- Content will be dynamically inserted here -->
-            </div>
-        </div>
+        Our technical team is actively working to restore and strengthen the security of our systems.
     </div>
 
-    <script src="script-api.js"></script>
-    <script src="script.js"></script>
+    <p>
+        We sincerely apologize for any inconvenience this situation may cause and appreciate your patience while we work to ensure a secure and reliable online experience.
+    </p>
+
+    <p>
+        Updates will be communicated as soon as the necessary security measures have been completed.
+    </p>
+
+    <footer>
+        © 2026 RS Farms Ltd. All Rights Reserved.
+    </footer>
+
+</div>
+
 </body>
 </html>
-
